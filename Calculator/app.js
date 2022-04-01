@@ -16,7 +16,7 @@ function printOutput(num) {
     if(num == "") {
         document.getElementById("output-value").innerText=num;
     } else {
-        document.getElementById("output-value").ineerText=getFormattedNumber(num);
+        document.getElementById("output-value").innerText=getFormattedNumber(num);
     }
 }
 
@@ -41,7 +41,7 @@ for(var i= 0; i < operator.length; i++) {
             printHistory("");
             printOutput("");
         } else if(this.id == "backspace") {
-            var output = reverseNumberformat(getOutput()).toString();
+            var output = reverseNumberFormat(getOutput()).toString();
             if(output) { // if output has a value
                 output = output.substr(0,output.length-1);
                 printOutput(output);
@@ -58,7 +58,7 @@ for(var i= 0; i < operator.length; i++) {
                  output = output == ""?
                  output:reverseNumberFormat(output);
                  history = history+output;
-                 if(this.id =="=") {
+                 if(this.id == "=") {
                      var result = eval(history);
                      printOutput(result);
                      printHistory("");
@@ -73,13 +73,12 @@ for(var i= 0; i < operator.length; i++) {
 }
 
 var number = document.getElementsByClassName("number");
-for(var i= 0; i < number.length; i++) {
+for(var i = 0; i < number.length; i++) {
     number[i].addEventListener("click", function() {
-        var output = reverseNumberformat(getOutput());
+        var output = reverseNumberFormat(getOutput());
         if(output != NaN) { // if output is a number
             output = output + this.id;
             printOutput(output);
-
         }
     });
 }
